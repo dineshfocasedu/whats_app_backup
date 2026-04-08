@@ -6,7 +6,7 @@ const upload = require('../middleware/upload');
 const { parseChat } = require('../middleware/parser');
 
 // POST /api/chats/upload — upload one or many .txt files
-/* router.post('/upload', (req, res, next) => {
+router.post('/upload', (req, res, next) => {
   upload.array('files', 500)(req, res, (err) => {
     if (err) {
       return res.status(400).json({ error: err.message || 'File upload error' });
@@ -71,7 +71,7 @@ const { parseChat } = require('../middleware/parser');
   }
 
   res.json({ success: true, results, errors });
-}); */
+});
 
 // GET /api/chats — list all contacts (no messages, just metadata)
 router.get('/', async (req, res) => {
