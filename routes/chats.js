@@ -3,11 +3,6 @@ const router = express.Router();
 
 const Chat = require('../models/Chat');
 
-const { parseChat } = require('../middleware/parser');
-
-/* ================= UPLOAD ================= */
-
-
 /* ================= LIST ================= */
 router.get('/', async (req, res) => {
   try {
