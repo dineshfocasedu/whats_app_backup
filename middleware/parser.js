@@ -5,8 +5,10 @@ const reTpl = /^\[(\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2})\] (Template [\s\S]+?wa
 function classifyMessage(sender, phone) {
   if (sender === '') return 'outgoing';
   if (/[a-zA-Z]/.test(sender)) return 'outgoing';
+
   const cs = sender.replace(/\D/g, '');
   const cp = phone.replace(/\D/g, '');
+
   if (cs && cp && cs === cp) return 'incoming';
   return 'incoming';
 }
@@ -27,6 +29,7 @@ function parseChat(filename, content) {
       if (cur) cur.bodyLines.push(line);
     }
   }
+
   if (cur) blocks.push(cur);
 
   const messages = [];
@@ -52,6 +55,7 @@ function parseChat(filename, content) {
       const sender = msgM[2].trim();
       const bodyText = [msgM[3], ...block.bodyLines].join('\n').trimEnd();
       const type = classifyMessage(sender, phone);
+
       messages.push({
         time: msgM[1],
         sender: sender || 'Bot',
