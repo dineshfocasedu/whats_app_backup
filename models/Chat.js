@@ -4,7 +4,7 @@ const MessageSchema = new mongoose.Schema({
   time: String,
   sender: String,
   text: String,
-  type: { type: String, enum: ['incoming', 'outgoing', 'system'], default: 'incoming' },
+  type: { type: String, enum: ['incoming', 'outgoing', 'system', 'api'], default: 'incoming' },
 });
 
 const ChatSchema = new mongoose.Schema(
